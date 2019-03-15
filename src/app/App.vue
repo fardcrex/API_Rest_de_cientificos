@@ -17,7 +17,7 @@
     <li><router-link to="/documentación">Documentación</router-link></li>
     <li><router-link to="/about">About</router-link></li>
     <li><router-link to="/demo">Demo</router-link></li>
-    <li><a href="collapsible.html">GitHub <i class="material-icons right">link</i></a></li>
+    <li><a href="https://github.com/fardcrex/FrontendZadness">GitHub <i class="material-icons right">link</i></a></li>
    
   </ul>  
 
@@ -43,12 +43,12 @@ export default {
       
     },
     mounted(){
-      this.crearCDN("iconFont","link","https://fonts.googleapis.com/icon?family=Material+Icons")
+     /*  this.crearCDN("iconFont","link","https://fonts.googleapis.com/icon?family=Material+Icons")
       this.crearCDN("fontGoogle","link","https://fonts.googleapis.com/css?family=Merriweather|Open+Sans")
       this.crearCDN("materializeCSS","link","https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
-      this.crearCDN("materializeJS","script","https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
-      setTimeout(()=>{var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);},800)
+      this.crearCDN("materializeJS","script","https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js") */
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
     
     },
     methods:{
