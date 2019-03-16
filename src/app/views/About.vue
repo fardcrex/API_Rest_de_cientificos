@@ -60,6 +60,12 @@ this.persona= {
 </script>
 <style lang="scss" scoped>
   .about {
-    min-height: 80vh;
+    margin: auto;
+    min-height: 90vh;
+    display: grid;
+    width: 98%;
+    justify-items: center;
+    max-width: 1300px;
+    grid-template-columns: 100%;
   }
 </style>

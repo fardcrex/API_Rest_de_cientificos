@@ -2,6 +2,7 @@
     <div class=footer>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio fugit eius quod eum natus perspiciatis molestias dignissimos laborum sequi nam explicabo, sit minus nisi labore ex doloremque iusto illo ullam?
+            <center><a href="https://www.cerotec.net/estadisticas-125883/zadness.com" title="abrir detalles"><img src="https://www.cerotec.net/contador.php?t=13&s=2&i=125883" alt="www.cerotec.net"></a> <br><a href='https://www.cerotec.net' style='font-size:12px;' >cerotec</a></center>
         </p>
         
         

@@ -167,7 +167,7 @@ class Cientifico{
         this.descripcion=descripcion
     }
 }
-
+/* eslint-disable */
 
 import  axios  from 'axios';
 
@@ -241,12 +241,19 @@ export default {
 
 
         async deleteCientificos(id){
-            let res = await fetch(this.urlDelServidorApi+`/cientifico/${id}`,{
+            try {
+                let res = await axios.delete(this.urlDelServidorApi+`/cientifico/${id}`/* ,{
                 method:"delete",
                 headers:{
                     'Content-Type': 'application/json'
                 }
-            })
+            } */)
+                console.log("respuesta de DELETE")  
+                console.log(res)
+            } catch (error) {
+                
+            }
+            
             this.cientiObtenido={name:"Quinto Congreso Solvay",
                     url:"https://es.wikipedia.org/wiki/Congreso_Solvay",
                     country:{name:" Bruselas"},
@@ -254,8 +261,8 @@ export default {
                     imagen:'/assets/Solvay_conference_1927.jpg',
                     AñoNacimiento:1927
             }
-             this.getCientificos()       
-           // console.log(res)
+             this.getCientificos() 
+            
         },
 
 
@@ -264,22 +271,22 @@ export default {
           //  console.log(this.cientiNew)
             this.isPaisValido(this.cientiNew.country)
             let cientifico = new Cientifico(this.cientiNew.name,this.cientiNew.country,this.cientiNew.imagen,this.cientiNew.url,this.cientiNew.AñoNacimiento,this.cientiNew.AñoFallecimiento,this.cientiNew.descripcion)
+
             try {
                 cientifico.country=await this.countriesObj[this.cientiNew.country.name]._id
             
             } catch (error) {
                 console.log(cientifico)
             }
-            
-
-           
+                       
             let res
             try {
-                res = await axios.post(this.urlDelServidorApi+`/cientifico`, 
-                   cientifico )
-                    console.log(res)
+                res = await axios.post(this.urlDelServidorApi+`/cientifico`,           cientifico )
+                //respuesta de POST//
+                console.log("respuesta de POST")
+                console.log(res)
             } catch (error) {
-                 Promise.reject(error)
+                Promise.reject(error)
                 console.log(error)
                 res = ""
                 return ""
@@ -291,18 +298,16 @@ export default {
                  res.data.data=await {...res.data.data,...{imagen:`/assets/imagenDefault.jpg`}}
                   console.log(res.data.data)
             }else{
-                let nameImagenFinal= await obteniendoNameImagenConSuExtension(file.files[0].name,res.data.data._id)
-                res.data.data=await {...res.data.data,...{imagen:`/assets/${nameImagenFinal}`}}
+                let nameImagenFinal= obteniendoNameImagenConSuExtension(file.files[0].name,res.data.data._id)
+                res.data.data= {...res.data.data,...{imagen:`/assets/${nameImagenFinal}`}}
                  res = await  axios.put(this.urlDelServidorApi+`/cientifico/${res.data.data._id}`,res.data.data)
                 
                 console.log(nameImagenFinal)
-               await this.enviarImagen(nameImagenFinal)
+                await this.enviarImagen(nameImagenFinal)
                
             }
-                this.getCientificos()
-                 
-            
-                this.desactivarFormulario()  
+            this.getCientificos() 
+            this.desactivarFormulario()  
             this.mensajeParaElUsuario = ""
         },
         async putCientificos(id){
@@ -317,8 +322,8 @@ export default {
             }
 
             let res = await axios.put(this.urlDelServidorApi+`/cientifico/${id}`,this.cientiNew)
-            
-             
+            console.log("respuesta de PUT")
+             console.log(res)
              this.getCientificos()  
              this.desactivarFormulario()    
              this.obtenerCienti(id)  
@@ -335,8 +340,8 @@ export default {
                 this.cientiObtenido=cientificoSeleccionado */
             let datos = await axios.get(`${this.urlDelServidorApi}/cientifico/${urlIdCientifico}`)
             if(datos){
-               console.log("sadasda")
-console.log(datos)
+                console.log("Obtener cientifico GET")
+                console.log(datos)
                 this.cientiObtenido=datos.data.data
             //    console.log(this.cientiObtenido)
             
