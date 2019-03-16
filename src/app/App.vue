@@ -7,9 +7,11 @@
                 <div class="brand-logo"><router-link to="/" >Zadness</router-link></div>
      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><router-link to="/documentación">Documentación</router-link></li>
+                <li><router-link to="/demo">Demo</router-link></li>
+                <li><router-link to="/documentacion">Documentación</router-link></li>
                 <li><router-link to="/about">About</router-link></li>
-                <li><a href="collapsible.html">GitHub</a></li>
+                <li><a href="https://github.com/fardcrex/FrontendZadness">GitHub Front</a></li>
+                <li><a href="https://github.com/fardcrex/BackendZadness" >GitHub Back</a></li>
             </ul>
             </div>
         </nav>  
@@ -17,7 +19,9 @@
     <li><router-link to="/documentación">Documentación</router-link></li>
     <li><router-link to="/about">About</router-link></li>
     <li><router-link to="/demo">Demo</router-link></li>
-    <li><a href="https://github.com/fardcrex/FrontendZadness">GitHub <i class="material-icons right">link</i></a></li>
+    <li> </li>
+                <li><a href="https://github.com/fardcrex/FrontendZadness">GitHub Frontend</a></li>
+                <li><a href="https://github.com/fardcrex/BackendZadness">GitHub Backend</a></li>
    
   </ul>  
 
@@ -33,7 +37,7 @@
 <script>
 
 import footerapp from './components/footerapp.vue'
-import { setTimeout } from 'timers';
+
  
 export default {
   name: 'home',
@@ -48,6 +52,7 @@ export default {
       this.crearCDN("materializeCSS","link","https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
       this.crearCDN("materializeJS","script","https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js") */
       var elems = document.querySelectorAll('.sidenav');
+      // eslint-disable-next-line
       var instances = M.Sidenav.init(elems);
     
     },
@@ -81,6 +86,7 @@ $laptop:1025px;
 $desk:1300px;
 .brand-logo{
    margin-left: 0;
+   font-family: Merriweather;
 @media screen and (min-width:$tablet){
         margin-left: 2rem;
   }

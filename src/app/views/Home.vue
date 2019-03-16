@@ -1,13 +1,13 @@
 <template>
   <div class="fondo">
-    <div class="satelite" id=box><img  src="../../assets/satellite.png" alt="" ></div>
+    <div class="satelite" id=box><img  src="../../assets/satellite2.png" alt="" ></div>
     <div class="logo">
         <h1>Zadness</h1>
         <img class=imgr src="../../assets/atom2515.png" alt="" >
     </div>
     <h2 class="text">
         API RESTful de 
-        grandes científicos de la historia por Jair Conislla
+        grandes científicos de la historia por <strong>Jair Conislla</strong>
     </h2>
    
     <div class=btn-grid>
@@ -201,7 +201,7 @@ $desk:1300px;
            width: 50%;
         }
         @media screen and (min-width:$tablet){
-             width: 70%;
+             width: 40%;
             justify-self: start;
             align-self: center;
         }

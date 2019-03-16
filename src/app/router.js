@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Demo from './views/Demo.vue'
+import Documentacion from './views/Documentacion.vue'
 import NotFoundComponent from './views/NotFoundComponent.vue'
 
 Vue.use(Router)
@@ -17,12 +18,12 @@ export default new Router({
       component: Home
     },
     {
-      path: '/documentación',
+      path: '/documentacion',
       name: 'documentación',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: About
+      component: Documentacion
     },
     {
       path: '/about',
