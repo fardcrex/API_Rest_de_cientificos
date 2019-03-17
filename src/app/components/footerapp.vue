@@ -1,12 +1,18 @@
 <template>
     <div class=footer>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio fugit eius quod eum natus perspiciatis molestias dignissimos laborum sequi nam explicabo, sit minus nisi labore ex doloremque iusto illo ullam?
-            <center><a href="https://www.cerotec.net/estadisticas-125883/zadness.com" title="abrir detalles"><img src="https://www.cerotec.net/contador.php?t=13&s=2&i=125883" alt="www.cerotec.net"></a> <br><a href='https://www.cerotec.net' style='font-size:12px;' >cerotec</a></center>
-        </p>
         
+        <div class=footer-one>
+            <p>
+            Sigueme en twitter con tweets de las ocurrencias sobre la vida de un emprendedor, ( vue, golang, flutter, psql, mongoDB, java) pronto IA con python
+            
         
-        <div>
+        <a href="https://twitter.com/fardcrex">twitter</a></p>
+        <p>Agredimientos: Alvaro Enrique por prestar su servidor para porder poner en linea este proyecto 
+        <a href="https://twitter.com/AlvaroEnriqueDS">twitter</a></p>
+        <center><a href="https://www.cerotec.net/estadisticas-125883/zadness.com" title="abrir detalles"><img src="https://www.cerotec.net/contador.php?t=13&s=2&i=125883" alt="www.cerotec.net"></a> <br><a href='https://www.cerotec.net' style='font-size:12px;' >cerotec</a></center>
+        </div>
+        
+        <div class=footer-dos>
             <input v-model="clave" type="text" style="color: white" placeholder="Clave Para reiniciar BD">
               <button v-on:click="reiniciar" class="btn waves-effect waves-light red darken-1" type="submit" name="action"> <span style="color: #fff">Reiniciar</span>
                 <i class="material-icons right">refresh</i>
@@ -60,7 +66,7 @@ export default {
 }
 
 </script>
-<style lang="scss">
+<style lang="scss" scope>
 $cel: 540px;
 $tablet: 814px;
 $laptop:1025px;
@@ -74,11 +80,11 @@ $desk:1300px;
      display: grid;
      grid-template-columns: 1fr;
       grid-template-rows:1fr 1.2fr;
-    &>div{
+    &-one{
          align-self: center;
          justify-self: start;
     }
-    &>p{
+    &-dos{
        
          align-self: center;
          justify-self: center;
@@ -92,13 +98,13 @@ $desk:1300px;
       padding:3%;
       grid-template-columns: 80% 20%;
       grid-template-rows: 1fr ;
-      &>div{
+      &-one{
          align-self: center;
          justify-self: center;
     }
-    &>p{
+    &-dos{
         padding: 1%;
-         align-self: center;
+         align-self: start;
          justify-self: center;
     }
   }

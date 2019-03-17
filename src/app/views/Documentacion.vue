@@ -267,13 +267,16 @@ $desk:1300px;
     @media screen and (min-width:$laptop){
         justify-items: center;
             grid-template-columns: 50% 50%;
+            
             grid-template-areas: "title title"
                                 "Cientificos Countries"
     }
     @media screen and (min-width:$desk){
             
     }
-    .title{
+    
+  }
+  .title{
         width: 100%;
         grid-area: title
     }
@@ -328,7 +331,6 @@ $desk:1300px;
     .descripcion{
         font-size: 1.2rem;
     }
-  }
  /* PrismJS 1.15.0
 https://prismjs.com/download.html#themes=prism-okaidia&languages=clike+javascript+json */
 /**
