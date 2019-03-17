@@ -7,7 +7,7 @@
     </div>
     <h2 class="text">
         API RESTful de 
-        grandes científicos de la historia por <strong>Jair Conislla</strong>
+        grandes científicos de la historia por Jair Conislla
     </h2>
    
     <div class=btn-grid>
