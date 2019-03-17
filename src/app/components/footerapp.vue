@@ -9,7 +9,7 @@
         <a href="https://twitter.com/fardcrex">twitter</a></p>
         <p>Agredimientos: Alvaro Enrique por prestar su servidor para porder poner en linea este proyecto 
         <a href="https://twitter.com/AlvaroEnriqueDS">twitter</a></p>
-        <center><a href="https://www.cerotec.net/estadisticas-125883/zadness.com" title="abrir detalles"><img src="https://www.cerotec.net/contador.php?t=13&s=2&i=125883" alt="www.cerotec.net"></a> <br><a href='https://www.cerotec.net' style='font-size:12px;' >cerotec</a></center>
+        <center><a href="https://www.cerotec.net/estadisticas-125883/zadness.com" title="abrir detalles"><img src="https://www.cerotec.net/contador.php?t=13&s=2&i=125883" alt="www.cerotec.net"></a> <br><a href='https://www.cerotec.net' style='font-size:12px;' >Analitics</a></center>
         </div>
         
         <div class=footer-dos>

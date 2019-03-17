@@ -10,18 +10,18 @@
                 <li><router-link to="/demo">Demo</router-link></li>
                 <li><router-link to="/documentacion">Documentación</router-link></li>
                 <li><router-link to="/about">About</router-link></li>
-                <li><a href="https://github.com/fardcrex/FrontendZadness">GitHub Front</a></li>
-                <li><a href="https://github.com/fardcrex/BackendZadness" >GitHub Back</a></li>
+                <li><a title="Github" target=”_blank” href="https://github.com/fardcrex/FrontendZadness">Frontend </a></li>
+                <li><a title="Github" target=”_blank” href="https://github.com/fardcrex/BackendZadness" >Backend</a></li>
             </ul>
             </div>
         </nav>  
         <ul class="sidenav" id="mobile-demo">
-    <li><router-link to="/documentación">Documentación</router-link></li>
+    <li><router-link to="/documentacion">Documentación</router-link></li>
     <li><router-link to="/about">About</router-link></li>
-    <li><router-link to="/demo">Demo</router-link></li>
+    <li><router-link to="/demo">Demo</router-link></li>    
     <li> </li>
-                <li><a href="https://github.com/fardcrex/FrontendZadness">GitHub Frontend</a></li>
-                <li><a href="https://github.com/fardcrex/BackendZadness">GitHub Backend</a></li>
+                <li><a href="https://github.com/fardcrex/FrontendZadness">Frontend <i class="fab fa-github right"></i></a></li>
+                <li><a href="https://github.com/fardcrex/BackendZadness">Backend <i class="fab fa-github right"></i></a></li>
    
   </ul>  
 

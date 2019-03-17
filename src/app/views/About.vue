@@ -17,7 +17,7 @@
             <span class="desc">Estudiante de Ingeniería de Software de la Universidad Tecnológica del Perú y de la carrera de Física de la Universidad Nacional Mayor de San Marcos. Con interés de trabajar en las áreas de programación, sistemas, informática. Me considero una persona autodidacta, analítica y con excelentes habilidades interpersonales.</span>
           </div>
           <div class="card-action">
-            <a href="https://github.com/fardcrex">gitgub</a>
+            <a href="https://github.com/fardcrex">gitgub </a>
           </div>
         </div>
       </div>
@@ -30,6 +30,8 @@
         </div>
         <div class="card-stacked">
           <div class="card-content">
+            <h2>Jair Conislla</h2>
+            <p>jair.conislla@ibernel.com</p>
             <span  class="desc">Estudiante de Ingeniería de Software de la Universidad Tecnológica del Perú y de la carrera de Física de la Universidad Nacional Mayor de San Marcos. Con interés de trabajar en las áreas de programación, sistemas, informática. Me considero una persona autodidacta, analítica y con excelentes habilidades interpersonales.</span>
           </div>
           <div class="card-action">
@@ -41,44 +43,7 @@
    </div>
    <div class="frotend-container">
      <h2>Tecnologias Frontend</h2>
-     <img class=img width="650" src="../../assets/Imagen de iOS (1).jpg" alt="Escritorio">
-     <ul class="collection">
-        <li class="collection-item avatar">
-          <img src="../../assets/node.png" alt="" class="circle">
-          <span class="title">Servidor Web</span>
-          <p>Node.js <br>
-           8.10.0
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-        </li>
-        <li class="collection-item avatar">
-          <img src="../../assets/express.png" alt="" class="circle">
-          <span class="title">Framework Backend</span>
-          <p>Express<br>
-            4.16.3
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-        </li>
-        <li class="collection-item avatar">
-          <img src="../../assets/mongo.png" alt="" class="circle">
-          <p>Mongo DB <br>
-            3.6.3
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-        </li>
-        <li class="collection-item avatar">
-          <img src="../../assets/mongoose.jpg" alt="" class="circle">
-          <span class="title">Object Modeling</span>
-          <p>Mongoose<br>
-            5.2.6
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-        </li>
-      </ul>
-   </div>
-   <div class="backend-container">
-     <h2>Tecnologias Backend</h2>
-     <img class=img src="../../assets/Backend.jpg" alt="Escritorio">
+     <img class=img width="650" src="../../assets/frontend.jpg" alt="Escritorio">
      <ul class="collection">
         <li class="collection-item avatar">
           <img src="../../assets/logo.png" alt="" class="circle">
@@ -113,6 +78,45 @@
           <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
         </li>        
       </ul>
+     
+   </div>
+   <div class="backend-container">
+     <h2>Tecnologias Backend</h2>
+     <img class=img src="../../assets/backend.jpg" alt="Escritorio">
+     <ul class="collection">
+        <li class="collection-item avatar">
+          <img src="../../assets/node.png" alt="" class="circle">
+          <span class="title">Servidor Web</span>
+          <p>Node.js <br>
+           8.10.0
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img src="../../assets/express.png" alt="" class="circle">
+          <span class="title">Framework Backend</span>
+          <p>Express<br>
+            4.16.3
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img src="../../assets/mongo.png" alt="" class="circle">
+          <span class="title">Base de Datos</span>
+          <p>Mongo DB <br>
+            3.6.3
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img src="../../assets/mongoose.jpg" alt="" class="circle">
+          <span class="title">Object Modeling</span>
+          <p>Mongoose<br>
+            5.2.6
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+      </ul>
 
    </div>
   </div>
@@ -129,7 +133,7 @@ export default {
    },
    created(){
     const mediumBp = window.matchMedia('(max-width: 814px)');
-    console.log(mediumBp)
+    //console.log(mediumBp)
     if(mediumBp.matches){
       this.cardAvatar= true
     }else{
@@ -149,12 +153,14 @@ h1{
         text-align: center;
         @media screen and (min-width:$tablet){
         font-size: 3.5rem;
+        font-weight: bold;
     }
     }
     h2{
+        margin: 0 0 1rem 0;
         font-size: 2.8rem;
         font-family: Merriweather;
-        font-weight: bold;
+        
     }
     h3{
         font-size: 2.5rem;
@@ -168,22 +174,31 @@ h1{
         
     }
   .desc{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
+     @media screen and (min-width:$cel){
+       font-size: 1.4rem;
+    }
      @media screen and (min-width:$tablet){
-         font-size: 2.5rem;}
+         font-size: 1.4rem;}
+     @media screen and (min-width:$laptop){
+     font-size: 1.7rem;}
+     @media screen and (min-width:$desk){
+     font-size: 1.9rem;}
   }
   .about {
     margin: auto;
     min-height: 90vh;
     display: grid;
-    width: 98%;
+    width: 100%;
     justify-items: center;
     max-width: 1300px;
     grid-template-columns: 100%;
+    grid-row-gap: 5vh;
     grid-template-areas: "title"
                           "frotend"
                           "backend";
      @media screen and (min-width:$cel){
+       width: 98%;
     justify-items: center;
     }
     @media screen and (min-width:$tablet){
@@ -208,6 +223,7 @@ h1{
 
   }
   .frotend-container{
+
     width: 95%;
     grid-area:  frotend;
     &>img{

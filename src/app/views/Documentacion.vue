@@ -83,9 +83,7 @@
         
         <p class=descripcion><span class=negrita><a href="http://www.zadness.com/api/cientifico/:id">/cientifico</a></span> Crea un cientifico y se obtiene el cientifico creado.</p>
         
-        <p>
-            <span class="llave">id:</span> Cientifico unique ID.
-        </p>
+        
         <p class=descripcion>Cuerpo (body) de la petición POST</p>
         <p>
            <span class="llave">name:</span>  Nombre del cientifico. <span class=negrita>REQUIRE UNIQUE</span>          

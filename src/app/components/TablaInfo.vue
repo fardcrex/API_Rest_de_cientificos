@@ -72,7 +72,7 @@
                 
                 <div class="row">
                     <div class="input-field col s12">
-                    <textarea required v-model="cientiNew.url" id="textarea1" class="materialize-textarea"></textarea>
+                    <textarea v-model="cientiNew.url" id="textarea1" class="materialize-textarea"></textarea>
                     <label for="textarea1">Link</label>
                     </div>
                 </div>
@@ -120,9 +120,16 @@
                 </button> 
             </div>
             <p>{{mensajeParaElUsuario}}</p>
+            
         </div>
-    </form>      
-      
+    </form>  
+
+    <!-- /////////////Pogres//////////// -->
+    <div class="progress progress_tamamo" v-show="loader">
+                <div class="indeterminate"></div>
+    </div>
+    <!-- /////////////Pogres//////////// -->
+    
      <div class=data>
             <div class="card"  v-for="cienti in cientificos" v-bind:key="cienti._id" >
                 <div class="card-image waves-effect waves-block waves-light">
@@ -170,6 +177,7 @@ class Cientifico{
 /* eslint-disable */
 
 import  axios  from 'axios';
+import { setTimeout } from 'timers';
 
 export default {
     name: "TablaInfo",
@@ -178,6 +186,7 @@ export default {
             urlDelServidorParaImagenes:"http://zadness.com"/* "http://127.0.0.1:5500" */,
             urlDelServidorApi:"http://zadness.com/api"/* http://zadness:3500/api  */,
             mensajeParaElUsuario:"",
+            loader: false,
             entrarDatos:false,
             editDatos:false,
             countries:[],
@@ -205,7 +214,7 @@ export default {
     created(){
         this.getCountries()
         this.getCientificos()       
-        //console.log(this.$route.params.id)
+        ////console.log(this.$route.params.id)
         if(!this.$route.params.id){
            
             this.cientiObtenido={name:"Quinto Congreso Solvay",
@@ -217,7 +226,7 @@ export default {
             }
         }
         else{
-          //  console.log("entro al if de created")
+          //  //console.log("entro al if de created")
               this.obtenerCienti(this.$route.params.id)
         }
     },
@@ -225,22 +234,23 @@ export default {
         async getCientificos(){
             let datos = await axios.get(this.urlDelServidorApi+'/cientificos')
             if(datos){
-                console.log("Se obtuvo cientificos")
-                console.log(datos.data.data )
+                //console.log("Se obtuvo cientificos")
+                //console.log(datos.data.data )
                 this.cientificos=datos.data.data 
             }
         },
         async getCountries(){
             let datos = await axios.get(this.urlDelServidorApi+'/countries')
             if(datos){
-             //   console.log(datos)
+             //   //console.log(datos)
                 this.countries=datos.data.data
             }
-            console.log(this.countriesObj)
+            //console.log(this.countriesObj)
         },
 
 
         async deleteCientificos(id){
+            this.loader=true
             try {
                 let res = await axios.delete(this.urlDelServidorApi+`/cientifico/${id}`/* ,{
                 method:"delete",
@@ -248,8 +258,8 @@ export default {
                     'Content-Type': 'application/json'
                 }
             } */)
-                console.log("respuesta de DELETE")  
-                console.log(res)
+                //console.log("respuesta de DELETE")  
+                //console.log(res)
             } catch (error) {
                 
             }
@@ -262,13 +272,14 @@ export default {
                     AñoNacimiento:1927
             }
              this.getCientificos() 
-            
+            this.loader=false
         },
 
 
 
         async postCientificos(){
-          //  console.log(this.cientiNew)
+            this.loader=true
+          //  //console.log(this.cientiNew)
             this.isPaisValido(this.cientiNew.country)
             let cientifico = new Cientifico(this.cientiNew.name,this.cientiNew.country,this.cientiNew.imagen,this.cientiNew.url,this.cientiNew.AñoNacimiento,this.cientiNew.AñoFallecimiento,this.cientiNew.descripcion)
 
@@ -276,75 +287,109 @@ export default {
                 cientifico.country=await this.countriesObj[this.cientiNew.country.name]._id
             
             } catch (error) {
-                console.log(cientifico)
+                //console.log(cientifico)
             }
                        
             let res
             try {
                 res = await axios.post(this.urlDelServidorApi+`/cientifico`,           cientifico )
                 //respuesta de POST//
-                console.log("respuesta de POST")
-                console.log(res)
+                //console.log("respuesta de POST")
+                //console.log(res)
             } catch (error) {
                 Promise.reject(error)
-                console.log(error)
+                //console.log(error)
                 res = ""
                 return ""
             }
             
                
-            console.log(res)
+            //console.log(res)
             if(!file.files[0]){
                  res.data.data=await {...res.data.data,...{imagen:`/assets/imagenDefault.jpg`}}
-                  console.log(res.data.data)
+                  //console.log(res.data.data)
             }else{
                 let nameImagenFinal= obteniendoNameImagenConSuExtension(file.files[0].name,res.data.data._id)
                 res.data.data= {...res.data.data,...{imagen:`/assets/${nameImagenFinal}`}}
                  res = await  axios.put(this.urlDelServidorApi+`/cientifico/${res.data.data._id}`,res.data.data)
                 
-                console.log(nameImagenFinal)
+                //console.log(nameImagenFinal)
                 await this.enviarImagen(nameImagenFinal)
                
             }
+            this.loader=false
             this.getCientificos() 
             this.desactivarFormulario()  
             this.mensajeParaElUsuario = ""
         },
         async putCientificos(id){
-            // Le da un ID al cientifico a enviar
-             console.log(this.cientiNew)
+            this.loader=true
+           
+            // Le da un ID de pais al cientifico a enviar
+             //console.log(this.cientiNew)
               this.cientiNew.country=await this.countriesObj[this.cientiNew.country.name]._id
               let nameImagenFinal
+              //console.log("imagen")
+              //console.log(this.cientiNew.imagen)
             if(file.files[0]){
-                 nameImagenFinal= await obteniendoNameImagenConSuExtension(file.files[0].name,id)
+                 this.cientiObtenido.imagen='/assets/imagenDefault.png'
+                 nameImagenFinal= await obteniendoNameImagenConSuExtension(file.files[0].name,id,this.cientiNew.imagen)
                 this.cientiNew=await {...this.cientiNew,...{imagen:`/assets/${nameImagenFinal}`}}                
                 await this.enviarImagen(nameImagenFinal)
+                this.desactivarFormulario()
             }
-
-            let res = await axios.put(this.urlDelServidorApi+`/cientifico/${id}`,this.cientiNew)
-            console.log("respuesta de PUT")
-             console.log(res)
-             this.getCientificos()  
-             this.desactivarFormulario()    
-             this.obtenerCienti(id)  
-           //  console.log(res)
+            try {
+                let res = await axios.put(this.urlDelServidorApi+`/cientifico/${id}`,this.cientiNew)
+                //console.log("respuesta de PUT")
+                //console.log(res)
+            } catch (error) {
+                this.mensajeParaElUsuario = "Error"
+            }
+            
+            await this.getCientificos()  
+                
+            await this.obtenerCienti(id)  
+             this.loader=false
+           //  //console.log(res)
         },
 
          async obtenerCienti(urlIdCientifico){
+             this.loader=true
             this.desactivarFormulario()
-          /*    console.log(this.cientiObtenido)
-            console.log(cientificoSeleccionado)
-            console.log(this.cientiObtenido._id)
-            console.log(cientificoSeleccionado._id)
+          /*    //console.log(this.cientiObtenido)
+            //console.log(cientificoSeleccionado)
+            //console.log(this.cientiObtenido._id)
+            //console.log(cientificoSeleccionado._id)
             if(this.cientiObtenido._id !== cientificoSeleccionado._id){
                 this.cientiObtenido=cientificoSeleccionado */
-            let datos = await axios.get(`${this.urlDelServidorApi}/cientifico/${urlIdCientifico}`)
+            let datos
+            try {
+                datos = await axios.get(`${this.urlDelServidorApi}/cientifico/${urlIdCientifico}`)
+            } catch (error) {
+                datos=false
+                setTimeout(()=>{
+                    this.loader=false
+                    alert("URL Cientifico inválido")
+                    this.cientiObtenido={name:"Quinto Congreso Solvay",
+                        url:"https://es.wikipedia.org/wiki/Congreso_Solvay",
+                        country:{name:" Bruselas"},
+                        descripcion:"Fue la conferencia más famosa y se celebró en octubre de 1927 en Bruselas. El tema principal fue Electrones y fotones, donde los mejores físicos mundiales discutieron sobre la recientemente formulada teoría cuántica, dieron un sentido a lo que no lo tenía, construyeron una nueva manera de entender el mundo y se dieron cuenta que para describir y entender a la naturaleza se tenían que abandonar gran parte de las ideas preconcebidas por el ser humano a lo largo de toda su historia.\n Fue una generación de oro de la ciencia, posiblemente como no ha habido otra en la historia. Diecisiete de los veintinueve asistentes eran o llegaron a ser ganadores de Premio Nobel, incluyendo a Marie Curie, que había ganado los premios Nobel en dos disciplinas científicas diferentes (Premios Nobel de Física y de Química). ",
+                        imagen:'/assets/Solvay_conference_1927.jpg',
+                        AñoNacimiento:1927
+                    
+                    
+                    
+                    }
+                    this.desactivarFormulario()
+                },3000)
+            } 
+             //console.log(datos)
             if(datos){
-                console.log("Obtener cientifico GET")
-                console.log(datos)
+                this.loader=false
+                //console.log("Obtener cientifico GET")
+                //console.log(datos.data.data)
                 this.cientiObtenido=datos.data.data
-            //    console.log(this.cientiObtenido)
-            
+            //    //console.log(this.cientiObtenido)            
             }
            
         },
@@ -352,7 +397,7 @@ export default {
 
     ////////Formulario///////////////
         activarFormulario(botonAMostrar){
-         //   console.log(this.countriesObj)
+         //   //console.log(this.countriesObj)
             this.entrarDatos=true
             if(botonAMostrar==1){
                 this.editDatos=true
@@ -360,7 +405,7 @@ export default {
             }
             if(botonAMostrar==2){
                 this.editDatos=false
-                this.cientiNew = this.cientiObtenido
+                this.cientiNew = {...this.cientiObtenido}
             }
         },
         desactivarFormulario(){
@@ -369,9 +414,9 @@ export default {
     ////////Formulario///////////////
 
         async enviarImagen(name){
-         //   console.log(this.cientiNew)
+         //   //console.log(this.cientiNew)
             var fileField = document.querySelector("input[type='file']");
-         //   console.log(fileField)
+         //   //console.log(fileField)
             var formData = new FormData();
             formData.append('nombre', name);
             formData.append('file', fileField.files[0]);
@@ -380,8 +425,7 @@ export default {
             method: 'post',
             body: formData
             })
-            .then(response =>console.log(response))
-            .catch(error => console.error('Error:', error))
+            
         },
 
 
@@ -396,8 +440,25 @@ export default {
     }
 }
 
-let obteniendoNameImagenConSuExtension = function(name,nuevo){
-    return `${nuevo}.${name.split(".")[1]}`
+let obteniendoNameImagenConSuExtension = function(name,nuevo,old=""){
+    let extensionImgNew =name.split(".")[1]
+    let extensionImgOld =old.split(".")[1]
+    //console.log("funcion change name")
+    //console.log(name)
+    //console.log(nuevo)
+    //console.log(old)
+    
+    if(extensionImgNew===extensionImgOld){
+    //console.log(extensionImgNew)
+    
+        if(`new.${extensionImgNew}`===old.split("_")[1]){
+            return `${nuevo}.${extensionImgNew}`
+        }
+        return `${nuevo}_new.${extensionImgNew}`
+    }else{
+        return `${nuevo}.${extensionImgNew}`
+    }
+   
     }
 
     function convertArrayToObject(array) {
@@ -416,30 +477,28 @@ $tablet: 814px;
 $laptop:1025px;
 $desk:1300px;
 
-    .mainContainer{
-        margin-bottom: 5%;
-        min-height:90vh;
-        display: grid;
-       
-        grid-template-columns: 1fr;
-        grid-template-rows: auto  1fr;
-         @media screen and (min-width:$tablet){
-       grid-template-columns: 45% 45%;
+.mainContainer{        
+    min-height:90vh;
+    display: grid;
+    margin-bottom: 2.5%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto  1fr;
+    @media screen and (min-width:$tablet){
+        grid-template-columns: 45% 45%;
         grid-template-rows: 100%;
         min-height: 70vh;
-  }
+    }    
+}
     
+    
+.container__one,.container__dos {
+    padding: 10% 10% 0 10%;
+    justify-self: center;
+    align-self: center;
+    &>div>div>div>img{        
+        max-height: 50vh ;
+        width: auto ;
     }
-    
-    
-    .container__one,.container__dos {
-        padding: 10% 10% 0 10%;
-  place-self: center;
-  &>div>div>div>img{
-      
-      max-height: 50vh ;
-      width: auto ;
-  }
 
      @media screen and (min-width:$tablet){
       padding: 10% 10% 0 20%;
@@ -447,10 +506,10 @@ $desk:1300px;
 }
 .container__dos {
          padding: 0 10% 0 10%;
-  @media screen and (min-width:$tablet){
-     padding: 6% 0 0 0;
-  }
-  }
+    @media screen and (min-width:$tablet){
+        padding: 6% 0 0 0;
+    }
+}
 
     .botones{
         display: flex;
@@ -465,8 +524,10 @@ $desk:1300px;
         }
     }
     .data{
+       
        width: 80%;
        margin: auto;
+        margin-top: 2.5%;
        display: grid;
        grid-template-columns: 100%;
         justify-content: center;	
@@ -501,5 +562,9 @@ $desk:1300px;
     font-family: 'Merriweather', serif;
        
 
+}
+.progress_tamamo{
+    width: 80%;
+    margin: auto
 }
 </style>
