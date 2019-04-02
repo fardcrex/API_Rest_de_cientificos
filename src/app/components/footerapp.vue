@@ -6,10 +6,10 @@
             Sigueme en twitter con tweets de las ocurrencias sobre la vida de un emprendedor, ( vue, golang, flutter, psql, mongoDB, java) pronto IA con python
             
         
-        <a href="https://twitter.com/fardcrex">twitter</a></p>
-        <p>Agredimientos: Alvaro Enrique por prestar su servidor para porder poner en linea este proyecto 
-        <a href="https://twitter.com/AlvaroEnriqueDS">twitter</a></p>
-        <center><a href="https://www.cerotec.net/estadisticas-125883/zadness.com" title="abrir detalles"><img src="https://www.cerotec.net/contador.php?t=13&s=2&i=125883" alt="www.cerotec.net"></a> <br><a href='https://www.cerotec.net' style='font-size:12px;' >Analitics</a></center>
+        <a href="https://twitter.com/fardcrex">twitter <i class="fab fa-twitter-square"></i></a></p>
+        <p v-on:click="ejemplo">Agredimientos: Alvaro Enrique por prestar su servidor para porder poner en linea este proyecto 
+        <a href="https://twitter.com/AlvaroEnriqueDS">twitter <i class="fab fa-twitter-square"></i></a></p>
+        <!-- <center><a href="https://www.cerotec.net/estadisticas-125883/zadness.com" title="abrir detalles"><img src="https://www.cerotec.net/contador.php?t=13&s=2&i=125883" alt="www.cerotec.net"></a> <br><a href='https://www.cerotec.net' style='font-size:12px;' >Analitics</a></center> -->
         </div>
         
         <div class=footer-dos>
@@ -31,20 +31,22 @@ export default {
       return {
           clave:"",
           mensaje:"",
+          
       }
   }
   ,methods:{
      reiniciar(){
-         if(this.clave){
-          fetch(`http://zadness.com/api/cientificos/${this.clave}`).then(res=>{       this.mostrarRespuestaDelServidor(res.status)            
+        if(this.clave){
+            fetch(`https://zadness.com/api/cientificos/${this.clave}`).then(res=>{
+                this.mostrarRespuestaDelServidor(res.status)            
                 this.reiniciarMensaje()
-          }).catch(e=>{                   
+            }).catch(e=>{                   
                 this.mensaje="Clave incorrecta"+e                  
                 this.reiniciarMensaje()
-              }
-          )}else{
+            }
+        )}else{
             this.mensaje="Inserte clave"
-          }
+        }
           
       },
     mostrarRespuestaDelServidor:  function (option) {
@@ -61,7 +63,14 @@ export default {
         setInterval(()=>{
                 this.mensaje=""
                  },time)
-    }
+    },
+    ejemplo(){
+        // eslint-disable-next-line
+        true?this.$router.push({ name: 'demo', params: { id: '5ca174fc3d91e80a067f1080' } }):console.log("sad");
+        
+        
+         console.log("si funciona")}
+    
   }
 }
 
