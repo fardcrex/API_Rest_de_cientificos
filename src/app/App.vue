@@ -25,7 +25,7 @@
    
   </ul>  
 
-    <router-view/>
+     <router-view></router-view>
 
     <footerapp>
     </footerapp>

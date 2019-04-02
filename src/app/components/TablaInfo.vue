@@ -83,7 +83,7 @@
         
         </div>
         <div class="container__dos">
-            <h2 class=font-descripcion-title>Descripción: </h2>
+            <h2 v-on:click="ejemplo" class=font-descripcion-title>Descripción: </h2>
             <p v-if="!entrarDatos" class=font-descripcion>{{cientiObtenido.descripcion}}</p>
           <div class="column"  v-if="entrarDatos">
           <div class="input-field col s12">
@@ -125,19 +125,21 @@
     </form>  
 
     <!-- /////////////Pogres//////////// -->
-    <div class="progress progress_tamamo" v-show="loader">
-                <div class="indeterminate"></div>
+    <div class="caja_progres">
+        <div class="progress progress_tamamo" v-show="loader">
+                    <div class="indeterminate"></div>
+        </div>
     </div>
     <!-- /////////////Pogres//////////// -->
     
      <div class=data>
             <div class="card"  v-for="cienti in cientificos" v-bind:key="cienti._id" >
                 <div class="card-image waves-effect waves-block waves-light">
-                <div v-on:click="obtenerCienti(urlIdCientifico) ">
+                
                         <router-link   :to="'/demo/'+cienti._id"  > 
                         <img class="imagen" :src="urlDelServidorParaImagenes+(cienti.imagen||'/assets/imagenDefault.png')" alt=""   >
                         </router-link>
-                    </div>     
+                        
             
                 </div>
                 <div class="card-content" v-on:click="obtenerCienti(urlIdCientifico)">
@@ -183,14 +185,21 @@ export default {
     name: "TablaInfo",
     data(){
         return {
-            urlDelServidorParaImagenes:"http://zadness.com"/* "http://127.0.0.1:5500" */,
-            urlDelServidorApi:"http://zadness.com/api"/* http://zadness:3500/api  */,
+            urlDelServidorParaImagenes:"https://zadness.com"/* "http://127.0.0.1:5500" */,
+            urlDelServidorApi:"https://zadness.com/api"/* http://zadness:3500/api  */,
             mensajeParaElUsuario:"",
             loader: false,
             entrarDatos:false,
             editDatos:false,
             countries:[],
             cientificos:[],
+            congreso:{name:"Quinto Congreso Solvay",
+                        url:"https://es.wikipedia.org/wiki/Congreso_Solvay",
+                        country:{name:" Bruselas"},
+                        descripcion:"Fue la conferencia más famosa y se celebró en octubre de 1927 en Bruselas. El tema principal fue Electrones y fotones, donde los mejores físicos mundiales discutieron sobre la recientemente formulada teoría cuántica, dieron un sentido a lo que no lo tenía, construyeron una nueva manera de entender el mundo y se dieron cuenta que para describir y entender a la naturaleza se tenían que abandonar gran parte de las ideas preconcebidas por el ser humano a lo largo de toda su historia.\n Fue una generación de oro de la ciencia, posiblemente como no ha habido otra en la historia. Diecisiete de los veintinueve asistentes eran o llegaron a ser ganadores de Premio Nobel, incluyendo a Marie Curie, que había ganado los premios Nobel en dos disciplinas científicas diferentes (Premios Nobel de Física y de Química). ",
+                        imagen:'/assets/Solvay_conference_1927.jpg',
+                        AñoNacimiento:1927
+                },
             cientiObtenido:{name:"Cargando",
                     url:"",
                     country:{name:"  Cargando Pais"},
@@ -264,13 +273,7 @@ export default {
                 
             }
             
-            this.cientiObtenido={name:"Quinto Congreso Solvay",
-                    url:"https://es.wikipedia.org/wiki/Congreso_Solvay",
-                    country:{name:" Bruselas"},
-                    descripcion:"Fue la conferencia más famosa y se celebró en octubre de 1927 en Bruselas. El tema principal fue Electrones y fotones, donde los mejores físicos mundiales discutieron sobre la recientemente formulada teoría cuántica, dieron un sentido a lo que no lo tenía, construyeron una nueva manera de entender el mundo y se dieron cuenta que para describir y entender a la naturaleza se tenían que abandonar gran parte de las ideas preconcebidas por el ser humano a lo largo de toda su historia.\n Fue una generación de oro de la ciencia, posiblemente como no ha habido otra en la historia. Diecisiete de los veintinueve asistentes eran o llegaron a ser ganadores de Premio Nobel, incluyendo a Marie Curie, que había ganado los premios Nobel en dos disciplinas científicas diferentes (Premios Nobel de Física y de Química). ",
-                    imagen:'/assets/Solvay_conference_1927.jpg',
-                    AñoNacimiento:1927
-            }
+            this.cientiObtenido={...this.congreso}
              this.getCientificos() 
             this.loader=false
         },
@@ -370,16 +373,7 @@ export default {
                 setTimeout(()=>{
                     this.loader=false
                     alert("URL Cientifico inválido")
-                    this.cientiObtenido={name:"Quinto Congreso Solvay",
-                        url:"https://es.wikipedia.org/wiki/Congreso_Solvay",
-                        country:{name:" Bruselas"},
-                        descripcion:"Fue la conferencia más famosa y se celebró en octubre de 1927 en Bruselas. El tema principal fue Electrones y fotones, donde los mejores físicos mundiales discutieron sobre la recientemente formulada teoría cuántica, dieron un sentido a lo que no lo tenía, construyeron una nueva manera de entender el mundo y se dieron cuenta que para describir y entender a la naturaleza se tenían que abandonar gran parte de las ideas preconcebidas por el ser humano a lo largo de toda su historia.\n Fue una generación de oro de la ciencia, posiblemente como no ha habido otra en la historia. Diecisiete de los veintinueve asistentes eran o llegaron a ser ganadores de Premio Nobel, incluyendo a Marie Curie, que había ganado los premios Nobel en dos disciplinas científicas diferentes (Premios Nobel de Física y de Química). ",
-                        imagen:'/assets/Solvay_conference_1927.jpg',
-                        AñoNacimiento:1927
-                    
-                    
-                    
-                    }
+                    this.cientiObtenido={...this.congreso}
                     this.desactivarFormulario()
                 },3000)
             } 
@@ -421,7 +415,7 @@ export default {
             formData.append('nombre', name);
             formData.append('file', fileField.files[0]);
 
-            await fetch('http://zadness.com/upload', {
+            await fetch('https://zadness.com/upload', {
             method: 'post',
             body: formData
             })
@@ -436,8 +430,27 @@ export default {
             }else{
                 this.mensajeParaElUsuario = "Pais no válido"
             }
+        },
+        ejemplo(){
+            
+            this.$router.push({ name: 'home'})
+            console.log("si funciona")}
+        },
+    watch: {
+        '$route' (to, from) {
+            if(!this.$route.params.id){           
+               this.cientiObtenido={...this.congreso}
+            }
+            else{
+            //  //console.log("entro al if de created")
+                this.obtenerCienti(this.$route.params.id)
+            }
         }
-    }
+    },
+    beforeRouteUpdate (to, from, next) {
+    
+    next()
+  }
 }
 
 let obteniendoNameImagenConSuExtension = function(name,nuevo,old=""){
@@ -478,15 +491,17 @@ $laptop:1025px;
 $desk:1300px;
 
 .mainContainer{        
-    min-height:90vh;
+    min-height:80vh;
     display: grid;
-    margin-bottom: 2.5%;
+    margin: auto;
+     justify-content: center;	
     grid-template-columns: 1fr;
     grid-template-rows: auto  1fr;
     @media screen and (min-width:$tablet){
-        grid-template-columns: 45% 45%;
+        grid-template-columns: 47% 47%;
         grid-template-rows: 100%;
-        min-height: 70vh;
+        height: 60vh;
+        justify-content: center;	
     }    
 }
     
@@ -497,11 +512,17 @@ $desk:1300px;
     align-self: center;
     &>div>div>div>img{        
         max-height: 50vh ;
-        width: auto ;
+        
+        max-width: 100%;
     }
 
      @media screen and (min-width:$tablet){
-      padding: 10% 10% 0 20%;
+      padding: 10% 10% 0 10%;
+      &>div>div>div>img{        
+        height: 40vh ;
+        
+        width: 100%;
+    }
   }
 }
 .container__dos {
@@ -565,6 +586,9 @@ $desk:1300px;
 }
 .progress_tamamo{
     width: 80%;
-    margin: auto
+    margin: auto;
+}
+.caja_progres{
+    min-height: 3vh;
 }
 </style>
