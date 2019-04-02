@@ -83,7 +83,7 @@
         
         </div>
         <div class="container__dos">
-            <h2 v-on:click="ejemplo" class=font-descripcion-title>Descripción: </h2>
+            <h2 class=font-descripcion-title>Descripción: </h2>
             <p v-if="!entrarDatos" class=font-descripcion>{{cientiObtenido.descripcion}}</p>
           <div class="column"  v-if="entrarDatos">
           <div class="input-field col s12">
@@ -226,13 +226,7 @@ export default {
         ////console.log(this.$route.params.id)
         if(!this.$route.params.id){
            
-            this.cientiObtenido={name:"Quinto Congreso Solvay",
-                    url:"https://es.wikipedia.org/wiki/Congreso_Solvay",
-                    country:{name:" Bruselas"},
-                    descripcion:"Fue la conferencia más famosa y se celebró en octubre de 1927 en Bruselas. El tema principal fue Electrones y fotones, donde los mejores físicos mundiales discutieron sobre la recientemente formulada teoría cuántica, dieron un sentido a lo que no lo tenía, construyeron una nueva manera de entender el mundo y se dieron cuenta que para describir y entender a la naturaleza se tenían que abandonar gran parte de las ideas preconcebidas por el ser humano a lo largo de toda su historia.\n Fue una generación de oro de la ciencia, posiblemente como no ha habido otra en la historia. Diecisiete de los veintinueve asistentes eran o llegaron a ser ganadores de Premio Nobel, incluyendo a Marie Curie, que había ganado los premios Nobel en dos disciplinas científicas diferentes (Premios Nobel de Física y de Química). ",
-                    imagen:'/assets/Solvay_conference_1927.jpg',
-                    AñoNacimiento:1927
-            }
+            this.cientiObtenido={ ...this.congreso}
         }
         else{
           //  //console.log("entro al if de created")
@@ -257,7 +251,6 @@ export default {
             //console.log(this.countriesObj)
         },
 
-
         async deleteCientificos(id){
             this.loader=true
             try {
@@ -277,8 +270,6 @@ export default {
              this.getCientificos() 
             this.loader=false
         },
-
-
 
         async postCientificos(){
             this.loader=true
@@ -388,7 +379,6 @@ export default {
            
         },
 
-
     ////////Formulario///////////////
         activarFormulario(botonAMostrar){
          //   //console.log(this.countriesObj)
@@ -405,7 +395,7 @@ export default {
         desactivarFormulario(){
             this.entrarDatos=false
         },
-    ////////Formulario///////////////
+    ////////////////////////////////////////
 
         async enviarImagen(name){
          //   //console.log(this.cientiNew)
@@ -422,20 +412,15 @@ export default {
             
         },
 
-
-        ///////////Validaciones//////////////
+    ///////////Validaciones//////////////
         isPaisValido(pais){
             if(this.countriesObj[pais]){
                 this.mensajeParaElUsuario = ""
             }else{
                 this.mensajeParaElUsuario = "Pais no válido"
             }
-        },
-        ejemplo(){
-            
-            this.$router.push({ name: 'home'})
-            console.log("si funciona")}
-        },
+        }
+    },      
     watch: {
         '$route' (to, from) {
             if(!this.$route.params.id){           
@@ -446,11 +431,8 @@ export default {
                 this.obtenerCienti(this.$route.params.id)
             }
         }
-    },
-    beforeRouteUpdate (to, from, next) {
+    }
     
-    next()
-  }
 }
 
 let obteniendoNameImagenConSuExtension = function(name,nuevo,old=""){
