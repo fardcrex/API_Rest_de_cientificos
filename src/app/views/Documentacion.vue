@@ -2,13 +2,13 @@
     <div class="document">
         <div class=title>
             <h1>Consumiendo Api Zadness</h1>
-            <p class=descripcion>URL: <a href="http://www.zadness.com/api">http://www.zadness.com/api/</a></p>
+            <p class=descripcion>URL: <a href="https://www.zadness.com/api">https://www.zadness.com/api/</a></p>
         </div>    
         <div class=Cientificos>
             <h2>Cientificos</h2>
             <h3>GET</h3>
-            <p class=descripcion><span class=negrita><a href="http://www.zadness.com/api/cientificos">/cientificos</a></span> Obtiene la información de todos los cientificos</p>
-            <p class=ok>HTTP 200 OK</p>
+            <p class=descripcion><span class=negrita><a href="https://www.zadness.com/api/cientificos">/cientificos</a></span> Obtiene la información de todos los cientificos</p>
+            <p class=ok>https 200 OK</p>
             <pre class="language-javascript"><code>
 {
     "data": [
@@ -46,11 +46,11 @@
     ]
 }
         </code></pre>        
-        <p class=descripcion><span class=negrita><a href="http://www.zadness.com/api/cientifico/:id">/cientifico/:id</a></span> Obtiene la información de un cientifico</p>
+        <p class=descripcion><span class=negrita><a href="https://www.zadness.com/api/cientifico/:id">/cientifico/:id</a></span> Obtiene la información de un cientifico</p>
         <p>
             <span class="llave">id:</span> Cientifico unique ID.
         </p>
-        <p class=ok>HTTP 200 OK</p>
+        <p class=ok>https 200 OK</p>
         <pre class="language-javascript"><code>
 {
     "data": {
@@ -69,11 +69,11 @@
     }
 }
         </code></pre>
-        <p class=error>HTTP/ 400 Bad Response</p>
+        <p class=error>https/ 400 Bad Response</p>
         <pre  class="language-javascript"><code>{
     "message": "No existen datos en el API con tus parámetros de búsqueda."
 }</code></pre>
-<p class=error>HTTP/ 500 Bad Response</p>
+<p class=error>https/ 500 Bad Response</p>
         <pre  class="language-javascript"><code>{
     "message": "Error interno del servidor. Cast to ObjectId failed for value
      \"[...]\" at path \"_id\" for model \"Cientifico\""
@@ -81,7 +81,7 @@
 </code></pre>
 <h3>POST</h3>
         
-        <p class=descripcion><span class=negrita><a href="http://www.zadness.com/api/cientifico/:id">/cientifico</a></span> Crea un cientifico y se obtiene el cientifico creado.</p>
+        <p class=descripcion><span class=negrita><a href="https://www.zadness.com/api/cientifico/:id">/cientifico</a></span> Crea un cientifico y se obtiene el cientifico creado.</p>
         
         
         <p class=descripcion>Cuerpo (body) de la petición POST</p>
@@ -94,7 +94,7 @@
         <p><span class="llave">descripcion:</span>  Una descripcion sobre su vida  <span class=negrita>OPCIONAL</span>  </p>
         <p> <span class="llave">AñoFallecimiento:</span> Año de fallecimiento <span class=negrita>OPCIONAL</span>  </p>
         <p> <span class="llave">AñoNacimiento:</span> Año de nacimiento <span class=negrita>OPCIONAL</span>  </p>
-        <p class=ok>HTTP 200 OK</p>
+        <p class=ok>https 200 OK</p>
         <pre class="language-javascript"><code>
 {
     "data": {        
@@ -109,11 +109,11 @@
     }
 }
         </code></pre>
-        <p class=error>HTTP/ 400 Bad Response</p>
+        <p class=error>https/ 400 Bad Response</p>
         <pre  class="language-javascript"><code>{
     "message": "No existen datos en el API con tus parámetros de búsqueda."
 }</code></pre>
-<p class=error>HTTP/ 500 Bad Response</p>
+<p class=error>https/ 500 Bad Response</p>
         <pre  class="language-javascript"><code>{
     "message": "Error interno del servidor. "
 }
@@ -121,7 +121,7 @@
 
 
     <h3>PUT</h3>        
-        <p class=descripcion><span class=negrita><a href="http://www.zadness.com/api/cientifico/:id">/cientifico/:id</a></span> Actualiza la información de un cientifico y se obtiene el actualizado.</p>
+        <p class=descripcion><span class=negrita><a href="https://www.zadness.com/api/cientifico/:id">/cientifico/:id</a></span> Actualiza la información de un cientifico y se obtiene el actualizado.</p>
         <p>
             <span class="llave">id:</span> Cientifico unique ID.
         </p>
@@ -135,7 +135,7 @@
         <p><span class="llave">descripcion:</span>  Una descripcion sobre su vida  <span class=negrita>OPCIONAL</span>  </p>
         <p> <span class="llave">AñoFallecimiento:</span> Año de fallecimiento <span class=negrita>OPCIONAL</span>  </p>
         <p> <span class="llave">AñoNacimiento:</span> Año de nacimiento <span class=negrita>OPCIONAL</span>  </p>
-        <p class=ok>HTTP 200 OK</p>
+        <p class=ok>https 200 OK</p>
         <pre class="language-javascript"><code>
 {
     "data": {        
@@ -150,11 +150,11 @@
     }
 }
         </code></pre>
-        <p class=error>HTTP/ 400 Bad Response</p>
+        <p class=error>https/ 400 Bad Response</p>
         <pre  class="language-javascript"><code>{
     "message": "No existen datos en el API con tus parámetros de búsqueda."
 }</code></pre>
-        <p class=error>HTTP/ 500 Bad Response</p>
+        <p class=error>https/ 500 Bad Response</p>
         <pre  class="language-javascript"><code>{
     "message": "Error interno del servidor. Cast to ObjectId failed for value
      \"[...]\" at path \"_id\" for model \"Cientifico\""
@@ -163,12 +163,12 @@
 
         <h3>DELETE</h3>
                 
-        <p class=descripcion><span class=negrita><a href="http://www.zadness.com/api/cientifico/:id">/cientifico/:id</a></span> Elimina a un cientifico y se obtiene el borrado.</p>
+        <p class=descripcion><span class=negrita><a href="https://www.zadness.com/api/cientifico/:id">/cientifico/:id</a></span> Elimina a un cientifico y se obtiene el borrado.</p>
         <p>
              <span class="llave">id:</span> Cientifico unique ID.
         </p>
         
-        <p class=ok>HTTP 200 OK</p>
+        <p class=ok>https 200 OK</p>
         <pre class="language-javascript"><code>
 {
     "data": {        
@@ -183,11 +183,11 @@
     }
 }
         </code></pre>
-        <p class=error>HTTP/ 400 Bad Response</p>
+        <p class=error>https/ 400 Bad Response</p>
         <pre  class="language-javascript"><code>{
     "message": "No existen datos en el API con tus parámetros de búsqueda."
 }</code></pre>
-<p class=error>HTTP/ 500 Bad Response</p>
+<p class=error>https/ 500 Bad Response</p>
         <pre  class="language-javascript"><code>{
     "message": "Error interno del servidor.[...]"
 }
@@ -197,8 +197,8 @@
         <div class=Countries>
             <h2 id="countries">Countries</h2>
             <h3>GET</h3>
-            <p class=descripcion><span class=negrita><a href="http://www.zadness.com/api/countries">/countries</a></span> Obtiene la información de todos los países</p>
-            <p class=ok>HTTP 200 OK</p>
+            <p class=descripcion><span class=negrita><a href="https://www.zadness.com/api/countries">/countries</a></span> Obtiene la información de todos los países</p>
+            <p class=ok>https 200 OK</p>
             <pre class="language-javascript"><code>
 {
     "data": [
@@ -218,7 +218,7 @@
     ]
 }
             </code></pre>   
-            <p class=error>HTTP/ 500 Bad Response</p>
+            <p class=error>https/ 500 Bad Response</p>
         <pre  class="language-javascript"><code>{
     "message": "Error interno del servidor.[...]"
 }
@@ -330,10 +330,10 @@ $desk:1300px;
         font-size: 1.2rem;
     }
  /* PrismJS 1.15.0
-https://prismjs.com/download.html#themes=prism-okaidia&languages=clike+javascript+json */
+httpss://prismjs.com/download.html#themes=prism-okaidia&languages=clike+javascript+json */
 /**
  * okaidia theme for JavaScript, CSS and HTML
- * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * Loosely based on Monokai textmate theme by https://www.monokai.nl/
  * @author ocodia
  */
 code[class*="language-"],

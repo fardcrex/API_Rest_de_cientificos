@@ -14,11 +14,12 @@
             <span class="card-title">Jair Conislla</span>
           </div>
           <div class="card-content">
-            <span class="desc">Estudiante de Ingeniería de Software de la Universidad Tecnológica del Perú y de la carrera de Física de la Universidad Nacional Mayor de San Marcos. Con interés de trabajar en las áreas de programación, sistemas, informática. Me considero una persona autodidacta, analítica y con excelentes habilidades interpersonales.</span>
+            <span class="desc">Estudiante de Ingeniería de Software de la Universidad Tecnológica del Perú y de la carrera de Física en la Universidad Nacional Mayor de San Marcos. Con experiencia básica en el de desarrollo de servicios web (APIs RESTful). Me considero una persona autodidacta con habilidades de comunicación, analítico al momento de diseñar modelos y/o resolver problemas y con excelentes habilidades interpersonales.</span>
           </div>
           <div class="card-action">
-            <a href="https://github.com/fardcrex">gitgub </a>
-          </div>
+            <a target="_black" href="https://github.com/fardcrex">gitgub </a>
+            <a target="_black" href="https://www.linkedin.com/in/jair-pool-conislla-bocangel-a6931579/">Linkedin</a>
+          </div>          
         </div>
       </div>
     </div>
@@ -32,11 +33,13 @@
           <div class="card-content">
             <h2>Jair Conislla</h2>
             <p>jair.conislla@ibernel.com</p>
-            <span  class="desc">Estudiante de Ingeniería de Software de la Universidad Tecnológica del Perú y de la carrera de Física de la Universidad Nacional Mayor de San Marcos. Con interés de trabajar en las áreas de programación, sistemas, informática. Me considero una persona autodidacta, analítica y con excelentes habilidades interpersonales.</span>
+            <span  class="desc">Estudiante de Ingeniería de Software de la Universidad Tecnológica del Perú y de la carrera de Física en la Universidad Nacional Mayor de San Marcos. Con experiencia básica en el de desarrollo de servicios web (APIs RESTful). Me considero una persona autodidacta con habilidades de comunicación, analítico al momento de diseñar modelos y/o resolver problemas y con excelentes habilidades interpersonales.</span>
           </div>
           <div class="card-action">
-            <a href="https://github.com/fardcrex">gitgub</a>
+            <a target="_black" href="https://github.com/fardcrex">gitgub</a>
+             <a target="_black" href="https://www.linkedin.com/in/jair-pool-conislla-bocangel-a6931579/">Linkedin</a>
           </div>
+          
         </div>
       </div>
     </div>
