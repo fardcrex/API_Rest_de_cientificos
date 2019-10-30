@@ -405,7 +405,7 @@ export default {
             formData.append('nombre', name);
             formData.append('file', fileField.files[0]);
 
-            await fetch('https://zadness.com/upload', {
+            await fetch(`${this.urlDelServidorParaImagenes}:3000/upload`, {
             method: 'post',
             body: formData
             })
