@@ -185,8 +185,8 @@ export default {
     name: "TablaInfo",
     data(){
         return {
-            urlDelServidorParaImagenes:"https://zadness.com"/* "http://127.0.0.1:5500" */,
-            urlDelServidorApi:"https://zadness.com/api"/* http://zadness:3500/api  */,
+            urlDelServidorParaImagenes:"http://192.168.0.68"/* "http://127.0.0.1:5500" */,
+            urlDelServidorApi:"http://192.168.0.68:3000/api"/* http://zadness:3500/api  */,
             mensajeParaElUsuario:"",
             loader: false,
             entrarDatos:false,
