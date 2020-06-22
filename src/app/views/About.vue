@@ -41,6 +41,7 @@
         <div class="card horizontal">
           <div class="card-image">
             <img
+              loading="lazy"
               class=foto2
               src="../../assets/jair.jpg"
             >
@@ -69,6 +70,7 @@
     <div class="frotend-container">
       <h2>Tecnologias Frontend</h2>
       <img
+        loading="lazy"
         class=img
         width="650"
         src="../../assets/frontend.jpg"
@@ -77,6 +79,7 @@
       <ul class="collection">
         <li class="collection-item avatar">
           <img
+            loading="lazy"
             src="../../assets/logo.png"
             alt=""
             class="circle"
@@ -92,6 +95,7 @@
         </li>
         <li class="collection-item avatar">
           <img
+            loading="lazy"
             src="../../assets/materialize.png"
             alt=""
             class="circle"
@@ -107,6 +111,7 @@
         </li>
         <li class="collection-item avatar">
           <img
+            loading="lazy"
             src="../../assets/prismjs.png"
             alt=""
             class="circle"
@@ -122,6 +127,7 @@
         </li>
         <li class="collection-item avatar">
           <img
+            loading="lazy"
             src="../../assets/github.png"
             alt=""
             class="circle"
@@ -141,13 +147,15 @@
     <div class="backend-container">
       <h2>Tecnologias Backend</h2>
       <img
+        loading="lazy"
         class=img
-        src="../../assets/backend2.jpg"
+        src="../../assets/backend.jpg"
         alt="Escritorio"
       >
       <ul class="collection">
         <li class="collection-item avatar">
           <img
+            loading="lazy"
             src="../../assets/node.png"
             alt=""
             class="circle"
@@ -163,6 +171,7 @@
         </li>
         <li class="collection-item avatar">
           <img
+            loading="lazy"
             src="../../assets/express.png"
             alt=""
             class="circle"
@@ -178,6 +187,7 @@
         </li>
         <li class="collection-item avatar">
           <img
+            loading="lazy"
             src="../../assets/mongo.png"
             alt=""
             class="circle"
@@ -193,6 +203,7 @@
         </li>
         <li class="collection-item avatar">
           <img
+            loading="lazy"
             src="../../assets/mongoose.jpg"
             alt=""
             class="circle"
