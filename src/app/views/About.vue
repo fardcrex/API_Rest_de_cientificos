@@ -122,7 +122,7 @@
         </li>
         <li class="collection-item avatar">
           <img
-            src=".https://lh3.googleusercontent.com/proxy/bsl9rh4lBew-UbbHex_3LKb7gBw9lZW3CtwzC2qNr4Z0FJOJIb45qmMYKiK7ZUsKAvVY9YHNjOZAOMVTTrbXTHGASo-Dz4AflsBHwompj0DhdjzVczM"
+            src="../../assets/github.png"
             alt=""
             class="circle"
           >
