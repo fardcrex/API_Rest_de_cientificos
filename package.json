@@ -10,7 +10,7 @@
     "gh-pages-deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "materialize-css": "^1.0.0-rc.2",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
